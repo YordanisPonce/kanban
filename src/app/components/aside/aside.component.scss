@@ -1,0 +1,27 @@
+@import "../../scss/variables.scss";
+
+h1 {
+    padding-top   : $customPadding;
+    padding-bottom: $customPadding;
+    @apply text-3xl px-5;
+}
+
+ul {
+    @apply mr-5;
+
+    li {
+        @apply px-5 py-2 border rounded-r-full border-none my-2 cursor-pointer;
+
+        &.active {
+            @apply bg-btn;
+        }
+
+        &:first-child {
+            @apply text-subtitle text-xs;
+        }
+
+        &:last-child {
+            @apply text-btn;
+        }
+    }
+}
