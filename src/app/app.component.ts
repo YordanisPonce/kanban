@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'kanban';
+  navBarTitle: string | undefined
+
+  getTitle(title: string) {
+    this.navBarTitle = title
+  }
 }

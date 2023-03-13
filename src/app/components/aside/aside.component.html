@@ -1,10 +1,17 @@
 <h1>
     <a [routerLink]="['/']">{{ title | capitalize}}</a>
-
 </h1>
 <ul>
-    <li>{{'All Boards (8)' | uppercase}}</li>
-    <li [routerLink]="['/task','1']" routerLinkActive="active" >Platform Launch</li>
-    <li [routerLink]="['/task','2']" routerLinkActive="active" >Marketing Plan</li>
+    <li *ngFor="let item of links;let i = index;" [routerLink]="['/task',i]" routerLinkActive="active"
+        (click)="emitTitle(i)">{{item}}</li>
     <li><span>&plus;</span> Create new board</li>
 </ul>
+
+<div class="toggle-container">
+    <div>
+        HOla mundo
+    </div>
+    <p>
+        HOla mundo
+    </p>
+</div>

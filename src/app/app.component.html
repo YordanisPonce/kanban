@@ -1,6 +1,12 @@
 <div class="principal-box">
-    <app-aside></app-aside>
-    <app-navbar></app-navbar>
+    <app-aside (navbarBrand)="getTitle($event)"></app-aside>
+    <app-navbar>
+        <h1 class="text-2xl font-bold">{{navBarTitle || 'All Boards' | capitalize}}</h1>
+        <div class="inline-options">
+            <button class="btn-add"><span>&plus;</span> {{'add new task'|capitalize}}</button>
+            <button class="ml-3">M</button>
+        </div>
+    </app-navbar>
     <app-section>
         <router-outlet></router-outlet>
     </app-section>

@@ -1,27 +1,40 @@
 @import "../../scss/variables.scss";
-
 h1 {
-    padding-top   : $customPadding;
+    padding-top: $customPadding;
     padding-bottom: $customPadding;
     @apply text-3xl px-5;
 }
 
 ul {
     @apply mr-5;
-
     li {
-        @apply px-5 py-2 border rounded-r-full border-none my-2 cursor-pointer;
-
+        @apply px-5 py-2 border rounded-r-full border-none my-2 cursor-pointer text-subtitle;
+        @extend %active-link-hover;
         &.active {
-            @apply bg-btn;
+            @apply bg-btn text-white font-bold;
         }
 
         &:first-child {
             @apply text-subtitle text-xs;
+            @extend %active-link-hover;
+            &.active {
+                @apply text-white;
+            }
         }
 
         &:last-child {
             @apply text-btn;
+            @extend %active-link-hover;
         }
+    }
+}
+
+div.toggle-container {
+    @apply px-5 mb-5 mt-auto;
+    div:first-child{
+     @apply bg-secondary px-2 py-1 flex justify-center rounded-md;
+    }
+    p {
+        @apply text-xs mb-0 my-3;
     }
 }
