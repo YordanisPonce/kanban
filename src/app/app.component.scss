@@ -3,24 +3,46 @@ $firstColumn: 18%;
 $firstRow: 10vh;
 
 .principal-box {
-    @apply grid;
+    @apply grid h-full;
     grid-template-columns: $firstColumn calc(100% - $firstColumn);
     grid-template-rows: $firstRow calc(100% - $firstRow);
-
+    @media screen and (max-width: 768px) {
+        @apply flex flex-col;
+    }
     app-aside {
         @apply h-screen bg-primary border-r border-zinc-700 border-solid border-y-0 shadow-lg row-span-2
         flex flex-col;
+        @media screen and (max-width: 768px) {
+            @apply order-3 absolute z-20 transition-transform duration-300 ease-in-out;
+        }
     }
 
     app-navbar {
         @apply bg-primary border-b border-zinc-700 border-solid flex items-center justify-between px-5;
+        @media screen and (max-width: 768px) {
+            @apply h-navbar fixed top-0 w-full;
+        }
     }
 
     app-section {
+        @media screen and (max-width: 768px) {
+            @apply grow;
+            padding-top: $firstRow;
+        }
     }
 }
 
 .btn-add {
-    @apply bg-btn rounded-full text-xs py-2 px-3 opacity-95 hover:opacity-100;
+    @apply bg-btn rounded-full sm:text-xs py-2 px-3 transition-colors duration-75 active:scale-90 duration-300 transition-transform
+    cursor-pointer;
+    @media screen and (max-width: 768px) {
+        @apply fixed bottom-0 right-0 mr-5 mb-8 py-3 px-4 z-50;
+    }
+}
 
+.custom-transition{
+    transition: all .3s 200ms  ease-in-out;
+}
+.custom-transition-revert{
+    transition: all .3s  ease-in-out;
 }

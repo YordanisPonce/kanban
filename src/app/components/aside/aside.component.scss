@@ -31,9 +31,7 @@ ul {
 
 div.toggle-container {
     @apply px-5 mb-5 mt-auto;
-    div:first-child{
-     @apply bg-secondary px-2 py-1 flex justify-center rounded-md;
-    }
+    
     p {
         @apply text-xs mb-0 my-3;
     }

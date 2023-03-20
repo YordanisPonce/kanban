@@ -10,6 +10,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { TaskComponent } from './components/task/task.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { LayoutModalComponent } from './components/modal/layout-modal/layout-modal.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
     PageNotFoundComponent,
     TaskComponent,
     CapitalizePipe,
+    LayoutModalComponent,
   ],
   imports: [
     BrowserModule,

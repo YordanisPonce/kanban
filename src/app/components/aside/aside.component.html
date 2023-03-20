@@ -8,10 +8,16 @@
 </ul>
 
 <div class="toggle-container">
-    <div>
-        HOla mundo
+    <div class="bg-secondary p-2 flex justify-center">
+        <i class="fa fa-sun-o"></i>
+        <div class="w-8 flex rounded-full cursor-pointer mx-3" (click)="switchToggle()"
+            [ngClass]="controlSwitch ? 'justify-end bg-btn' : 'justify-start bg-gray-600'">
+            <div class="p-2 rounded-full bg-white w-fit scale-75">
+            </div>
+        </div>
+        <i class="fa fa-moon-o"></i>
     </div>
-    <p>
-        HOla mundo
+    <p class="text-center">
+        &copy; {{date}} Kanban
     </p>
 </div>
