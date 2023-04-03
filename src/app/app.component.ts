@@ -1,9 +1,12 @@
-import { Component, ElementRef, HostListener, OnInit, ViewChild, OnChanges } from '@angular/core';
+import { Component, HostListener, OnChanges, OnInit, SimpleChanges, } from '@angular/core';
+import { ShareFunctionsService } from './services/app/share-functions.service';
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
 
@@ -13,8 +16,12 @@ export class AppComponent implements OnInit {
   innerWidth: number = 0;
   maxWidth: number = 768;
   modalOpened: boolean | undefined
+  createBoardModal: boolean | undefined
+  constructor() { }
+
   ngOnInit(): void {
     this.modalOpened = false;
+    this.createBoardModal = false;
     this.setGlobalWidth();
   }
 
@@ -44,8 +51,14 @@ export class AppComponent implements OnInit {
     this.innerWidth = window.innerWidth
   }
 
-  openModal(){
-    this.modalOpened = !this.modalOpened;
+  toggleModal(toggle: boolean) {
+    this.modalOpened = toggle;
+  }
+  toggleModalCreate(toggle: boolean) {
+    this.createBoardModal = toggle;
   }
 
+  openAsideModal(value: boolean) {
+    this.toggleModalCreate(value)
+  }
 }

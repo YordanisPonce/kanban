@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
 })
 export class AsideComponent implements OnInit {
   title = 'kanban';
-  links = ['All boards', 'Platform Launch', 'Marketing Plan'];
+  links = ['Platform Launch', 'Marketing Plan'];
   controlSwitch: boolean = false
   @Output() navbarBrand = new EventEmitter<string>(undefined);
   @Output() hideAside = new EventEmitter<boolean>(false)
+  @Output() openM = new EventEmitter<boolean>(false)
 
   outside: boolean = true;
   date: number | undefined
@@ -49,5 +50,10 @@ export class AsideComponent implements OnInit {
   handleOutsideClick(event: Event) {
     this.hideAside.emit(this.outside);
     this.outside = true;
+  }
+
+
+  openModal() {
+    this.openM.emit(true);
   }
 }

@@ -25,6 +25,21 @@ $firstRow: 10vh;
     }
 
     app-section {
+        /* width */
+        &::-webkit-scrollbar {
+            width: 8px;
+            @apply rounded-full;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            @apply rounded-full bg-primary;
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            @apply bg-btn rounded-full;
+        }
         @media screen and (max-width: 768px) {
             @apply grow;
             padding-top: $firstRow;
@@ -40,9 +55,21 @@ $firstRow: 10vh;
     }
 }
 
-.custom-transition{
-    transition: all .3s 200ms  ease-in-out;
+.custom-transition {
+    transition: all 0.3s 200ms ease-in-out;
 }
-.custom-transition-revert{
-    transition: all .3s  ease-in-out;
+.custom-transition-revert {
+    transition: all 0.3s ease-in-out;
+}
+
+.base-modal {
+    background-color: rgba(0, 0, 0, 0.6);
+    @apply absolute top-0 left-0 h-screen w-full flex items-center justify-center z-50 transition-opacity duration-200 px-4;
+}
+
+.modal{
+    @apply w-full;
+    @media screen and (min-width:768px) {
+        @apply w-1/3;
+    }
 }
