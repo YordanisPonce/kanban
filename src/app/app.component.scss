@@ -51,7 +51,7 @@ $firstRow: 10vh;
     @apply bg-btn rounded-full sm:text-xs py-2 px-3 transition-colors duration-75 active:scale-90 duration-300 transition-transform
     cursor-pointer;
     @media screen and (max-width: 768px) {
-        @apply fixed bottom-0 right-0 mr-5 mb-8 py-3 px-4 z-50;
+        @apply fixed bottom-0 right-0 mr-5 mb-8 py-3 px-4;
     }
 }
 

@@ -12,7 +12,6 @@ import { TaskComponent } from './components/task/task.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { LayoutModalComponent } from './components/modal/layout-modal/layout-modal.component';
 import { AddTaskComponent } from './components/modal/add-task/add-task.component';
-import { ShareFunctionsService } from './services/app/share-functions.service';
 import { CreateBoardComponent } from './components/modal/create-board/create-board.component';
 
 @NgModule({
@@ -33,7 +32,7 @@ import { CreateBoardComponent } from './components/modal/create-board/create-boa
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [ShareFunctionsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

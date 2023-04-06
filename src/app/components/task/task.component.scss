@@ -1,5 +1,5 @@
 .section {
-    @media screen and (max-width:768px ) {
+    @media screen and (max-width: 768px) {
         @apply flex-col;
     }
 }
@@ -22,5 +22,13 @@
     }
     @media screen and (max-width: 768px) {
         @apply grid-cols-1 pb-5;
+    }
+}
+
+.add-column {
+    @apply my-4 cursor-pointer flex items-center bg-primary justify-center
+    grow mx-5;
+    @media screen and (min-width: 768px) {
+        @apply opacity-80 hover:opacity-100;
     }
 }
