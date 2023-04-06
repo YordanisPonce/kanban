@@ -9,8 +9,9 @@
                 <span class="mr-1">&plus;
                 </span>{{'add new task'|capitalize}}
             </button>
-            <button class="ml-3" [ngClass]="{'pointer-events-none': toggleDrawer}"
-                (click)="handleShowDrawer($event)">M</button>
+            <button class="ml-3" [ngClass]="{'pointer-events-none': toggleDrawer}" (click)="handleShowDrawer($event)">
+                <i class="fa fa-bars"></i>
+            </button>
         </div>
     </app-navbar>
     <app-section class="h-full"

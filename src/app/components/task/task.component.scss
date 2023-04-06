@@ -1,0 +1,26 @@
+.section {
+    @media screen and (max-width:768px ) {
+        @apply flex-col;
+    }
+}
+.ball {
+    @apply p-2 rounded-full w-fit h-fit;
+}
+.task {
+    @apply bg-primary p-4 rounded-md cursor-pointer my-5;
+}
+.title {
+    @apply font-bold truncate;
+}
+.participants {
+    @apply text-subtitle font-bold;
+}
+.container-task {
+    @apply grid gap-3 mx-5 grid-cols-3;
+    @media screen and (max-width: 992px) {
+        @apply grid-cols-2;
+    }
+    @media screen and (max-width: 768px) {
+        @apply grid-cols-1 pb-5;
+    }
+}

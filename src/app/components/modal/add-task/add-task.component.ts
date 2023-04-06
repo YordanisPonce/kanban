@@ -5,11 +5,8 @@ import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges } from
   templateUrl: './add-task.component.html',
   styleUrls: ['./add-task.component.scss']
 })
-export class AddTaskComponent implements OnChanges {
+export class AddTaskComponent {
   @Input() option: number | undefined = 0;
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.option);
-  }
   @HostListener('click', ['$event'])
   handleClick(event: Event) {
     event.stopPropagation()

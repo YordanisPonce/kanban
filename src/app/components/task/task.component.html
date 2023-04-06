@@ -1,3 +1,42 @@
-<div class="h-full">
-    <p>task works! #{{id}}</p>
+<div class="flex h-full section">
+    <div class="container-task">
+        <div>
+            <div class="flex items-center h-fit my-6">
+                <div class="ball bg-todo"></div>
+                <span class="ml-3 text-subtitle font-bold uppercase text-xs">Todo (4)</span>
+            </div>
+            <div class="task">
+                <p class="title">Build UI for onboarding flow</p>
+                <small class="participants">0 of 3 participants</small>
+            </div>
+            <div class="task">
+                <p class="title">Build UI for onboarding flow</p>
+                <small class="participants">0 of 3 participants</small>
+            </div>
+        </div>
+        <div>
+            <div class="flex items-center h-fit my-6">
+                <div class="ball bg-doing"></div>
+                <span class="ml-3 text-subtitle font-bold uppercase text-xs">Doing (4)</span>
+            </div>
+            <div class="task">
+                <p class="title">Title</p>
+                <div class="participants"></div>
+            </div>
+        </div>
+        <div>
+            <div class="flex items-center h-fit my-6">
+                <div class="ball bg-done"></div>
+                <span class="ml-3 text-subtitle font-bold uppercase text-xs">Done (4)</span>
+            </div>
+            <div class="task">
+                <p class="title">Title</p>
+                <div class="participants"></div>
+            </div>
+        </div>
+    </div>
+    <div class="my-4 cursor-pointer bg-primary flex items-center justify-center
+    opacity-80 hover:opacity-100 grow mx-5">
+        <p class="mb-0 text-2xl text-subtitle text-center"><i class="fa fa-plus"></i> New column</p>
+    </div>
 </div>
