@@ -1,3 +1,47 @@
-<div class="h-fit">
-    <p class="text-4xl" *ngFor="let item of data;let i = index;">{{i}}{{item}}</p>
+<div class="h-fit py-4 mx-5">
+    <div class="recent mb-4">
+        <p class="text-lg text-subtitle font-bold mb-4 "><i class="fa fa-clock-o"></i> <span class="ml-2">Visto
+                recientemente</span></p>
+        <div class="box">
+            <span class="font-bold">Sistema de Bicicletas P&uacute;blicas</span>
+        </div>
+    </div>
+    <div class="board">
+        <p class="mb-4 text-lg text-subtitle font-bold"><span class="ml-2">Tus espacios de trabajo</span></p>
+
+        <div class="pb-3">
+            <div class="container-options">
+                <p class="my-3 truncate"><span class="bg-btn text-xl font-bold py-1 px-2 rounded-md ">P</span> <span
+                        class="ml-2 mb-4 text-lg text-subtitle font-bold">Platform Launch</span></p>
+                <div class="grid gap-2 grid-cols-2">
+                    <p
+                        class="bg-btn h-fit cursor-pointer px-1 rounded-sm active:scale-95 duration-300 transition-transform">
+                        <i class="fa fa-user"></i><span class="ml-2 option">Members (4)</span></p>
+                    <p
+                        class="bg-btn h-fit cursor-pointer px-1 rounded-sm active:scale-95 duration-300 transition-transform">
+                        <i class="fa fa-trash"></i><span class="ml-2 option">Delete</span></p>
+                </div>
+            </div>
+            <div class="box" [routerLink]="['/task',1]">
+                <span class="font-bold">Important project</span>
+            </div>
+        </div>
+        <div class="pb-3">
+            <div class="container-options">
+                <p class="my-3 truncate"><span class="bg-btn text-xl font-bold py-1 px-2 rounded-md">M</span> <span
+                        class="ml-2 mb-4 text-lg text-subtitle font-bold">Marketing Launch</span></p>
+                <div class="grid gap-2 grid-cols-2">
+                    <p
+                        class="bg-btn h-fit cursor-pointer px-1 rounded-sm active:scale-95 duration-300 transition-transform">
+                        <i class="fa fa-user"></i><span class="ml-2 option">Members (6)</span></p>
+                    <p
+                        class="bg-btn h-fit cursor-pointer px-1 rounded-sm active:scale-95 duration-300 transition-transform">
+                        <i class="fa fa-trash"></i><span class="ml-2 option">Delete</span></p>
+                </div>
+            </div>
+            <div class="box" [routerLink]="['/task',2]">
+                <span class="font-bold">Best project</span>
+            </div>
+        </div>
+    </div>
 </div>

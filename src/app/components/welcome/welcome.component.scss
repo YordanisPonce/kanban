@@ -1,0 +1,21 @@
+.box {
+    @apply rounded-md h-28 w-52 bg-primary p-2 cursor-pointer hover:scale-105 transition-transform duration-300 ease-in-out
+    active:scale-x-95;
+
+    @media screen and (max-width: 552px) {
+        @apply w-full;
+    }
+}
+
+.option {
+    @media screen and (max-width: 768px) {
+        @apply hidden;
+    }
+}
+
+.container-options {
+    @apply flex justify-between items-center border-solid border-white border-b-2 mb-3;
+    @media screen and (max-width: 768px) {
+        @apply flex-col items-start pb-2;
+    }
+}

@@ -32,7 +32,7 @@ export class AsideComponent implements OnInit {
   }
 
   emitTitle(index?: number | undefined) {
-    const value = index !== undefined ? this.links[index] : 'dashboard';
+    const value = index !== undefined ? this.links[index] : 'home';
     this.navbarBrand.emit(value);
   }
 

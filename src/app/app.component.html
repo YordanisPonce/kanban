@@ -3,7 +3,7 @@
         [ngClass]="!toggleDrawer && innerWidth <= maxWidth? '-translate-x-full hidden' : 'translate-x-0'"
         class="-translate-x-full" />
     <app-navbar>
-        <h1 class="text-2xl font-bold truncate">{{navBarTitle || 'All Boards' | capitalize}}</h1>
+        <h1 class="text-2xl font-bold truncate">{{navBarTitle || 'home' | capitalize}}</h1>
         <div class="inline-options">
             <button class="btn-add hover:shadow" (click)="toggleModal(true)">
                 <span class="mr-1 text-xs">
@@ -16,7 +16,7 @@
         </div>
     </app-navbar>
     <app-section class="h-full"
-        [ngClass]="{'overflow-hidden': toggleDrawer || modalOpened, 'overflow-scroll':!toggleDrawer || !modalOpened}">
+        [ngClass]="{'overflow-hidden': toggleDrawer, 'overflow-scroll':!toggleDrawer}">
         <router-outlet />
     </app-section>
     <div class="absolute top-0 left-0 h-screen w-full  bg-black  transition-opacity duration-200 ease-in-out flex items-center justify-center"

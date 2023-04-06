@@ -28,7 +28,7 @@ module.exports = {
       },
       height: {
         navbar: '10vh'
-      }
+      },
     },
   },
   plugins: [],
