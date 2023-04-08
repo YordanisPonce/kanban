@@ -1,3 +1,22 @@
 .modal {
     @apply p-4 bg-primary rounded-sm;
 }
+
+.text-area {
+    border-width: 0.5px;
+    resize      : none;
+
+    &::-webkit-scrollbar {
+        width: 3px;
+        @apply rounded-full;
+    }
+
+    &::-webkit-scrollbar-track {
+        @apply rounded-full bg-primary;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        @apply bg-btn rounded-full;
+    }
+}
