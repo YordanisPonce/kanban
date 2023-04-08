@@ -10,3 +10,8 @@
 body {
     @apply bg-secondary text-white h-screen;
 }
+
+.required{
+ @apply text-red-500 font-bold text-xs mt-1;
+
+}
