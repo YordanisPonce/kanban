@@ -12,10 +12,8 @@
         <input type="text" name="" id="" placeholder="e.g. Take coffee break" class="rounded-sm border-solid border-gray-600 bg-transparent
         focus:outline-none focus:shadow-none py-1 px-2 text-sm placeholder:text-gray-600" style="border-width: 0.5px;"
             formControlName="subtitle">
-<<<<<<< HEAD
-=======
+
         <small class="required" *ngIf="boardForm.get('subtitle')?.hasError('required')  && boardForm.get('subtitle')?.touched">This field is required</small>
->>>>>>> 3df7fef3604d825081951f6e0bbbd83e6c7f1f0c
     </div>
     <div class="flex flex-col mt-4">
         <button type="submit" class="rounded-full bg-btn text-white py-1" [disabled]="!boardForm.valid">Create board</button>

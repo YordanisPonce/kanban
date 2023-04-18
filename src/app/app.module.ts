@@ -13,7 +13,7 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { LayoutModalComponent } from './components/modal/layout-modal/layout-modal.component';
 import { AddTaskComponent } from './components/modal/add-task/add-task.component';
 import { CreateBoardComponent } from './components/modal/create-board/create-board.component';
-import {  ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import {  ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
