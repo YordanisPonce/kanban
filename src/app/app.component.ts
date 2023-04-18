@@ -1,4 +1,6 @@
 import { Component, HostListener, OnChanges, OnInit, SimpleChanges, } from '@angular/core';
+import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './services/auth/auth.service';
 
 
 
@@ -16,7 +18,8 @@ export class AppComponent implements OnInit {
   maxWidth: number = 768;
   modalOpened: boolean | undefined
   createBoardModal: boolean | undefined
-  constructor() { }
+  loginComponent = LoginComponent
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
     this.modalOpened = false;
@@ -59,5 +62,9 @@ export class AppComponent implements OnInit {
 
   openAsideModal(value: boolean) {
     this.toggleModalCreate(value)
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn();
   }
 }

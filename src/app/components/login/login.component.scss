@@ -1,0 +1,51 @@
+.wrapper{
+    @apply h-full flex items-center justify-center py-24;
+    @media screen and (max-width: 850px) {
+        @apply py-3;
+    }
+}
+
+.form {
+    @apply w-full h-full mx-52 grid grid-cols-2 shadow-lg rounded-md p-5 bg-primary;
+    .inner-form {
+        @apply h-full flex flex-col justify-center;
+        @media screen and (max-width: 850px) {
+            @apply justify-evenly;
+        }
+    }
+    @media screen and (max-width: 850px) {
+        @apply mx-0 flex bg-transparent shadow-none;
+        div.welcome-image {
+            @apply hidden;
+        }
+        .inner-form {
+            @apply grow;
+        }
+    }
+}
+
+.input-box {
+    @apply flex flex-col w-full mb-4;
+    input {
+        @apply p-2 rounded-full text-white focus:outline-none border-2 border-solid border-btn bg-transparent;
+    }
+}
+
+.submit-box {
+    @apply flex justify-between items-center my-8;
+    @media screen and (max-width: 850px) {
+        @apply flex-col items-start;
+        button {
+            @apply mb-3;
+        }
+    }
+}
+
+.or-box {
+    div.social {
+        height: 0.5px;
+        @media screen and (max-width: 850px) {
+            height: 2px;
+        }
+    }
+}

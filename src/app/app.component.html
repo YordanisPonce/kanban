@@ -1,35 +1,41 @@
-<div class="principal-box overflow-hidden">
-    <app-aside (navbarBrand)="getTitle($event)" (openM)="openAsideModal($event)" (hideAside)="hideAside($event)"
-        [ngClass]="!toggleDrawer && innerWidth <= maxWidth? '-translate-x-full hidden' : 'translate-x-0'"
-        class="-translate-x-full" />
-    <app-navbar>
-        <h1 class="text-2xl font-bold truncate">{{navBarTitle || 'home' | capitalize}}</h1>
-        <div class="inline-options">
-            <button class="btn-add hover:shadow" (click)="toggleModal(true)">
-                <span class="mr-1 text-xs">
-                    <i class="fa fa-plus"></i>
-                </span>{{'add new task'|capitalize}}
-            </button>
-            <button class="ml-3" [ngClass]="{'pointer-events-none': toggleDrawer}" (click)="handleShowDrawer($event)">
-                <i class="fa fa-bars"></i>
-            </button>
+<ng-container *ngIf="isLoggedIn();else login">
+    <div class="principal-box overflow-hidden">
+        <app-aside (navbarBrand)="getTitle($event)" (openM)="openAsideModal($event)" (hideAside)="hideAside($event)"
+            [ngClass]="!toggleDrawer && innerWidth <= maxWidth? '-translate-x-full hidden' : 'translate-x-0'"
+            class="-translate-x-full" />
+        <app-navbar>
+            <h1 class="text-2xl font-bold truncate">{{navBarTitle || 'home' | capitalize}}</h1>
+            <div class="inline-options">
+                <button class="btn-add hover:shadow" (click)="toggleModal(true)">
+                    <span class="mr-1 text-xs">
+                        <i class="fa fa-plus"></i>
+                    </span>{{'add new task'|capitalize}}
+                </button>
+                <button class="ml-3" [ngClass]="{'pointer-events-none': toggleDrawer}"
+                    (click)="handleShowDrawer($event)">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </app-navbar>
+        <app-section class="h-full" [ngClass]="{'overflow-hidden': toggleDrawer, 'overflow-scroll':!toggleDrawer}">
+            <router-outlet />
+        </app-section>
+        <div class="absolute top-0 left-0 h-screen w-full  bg-black  transition-opacity duration-200 ease-in-out flex items-center justify-center"
+            [ngClass]="!toggleDrawer? 'opacity-0 pointer-events-none' :  'opacity-60'">
         </div>
-    </app-navbar>
-    <app-section class="h-full"
-        [ngClass]="{'overflow-hidden': toggleDrawer, 'overflow-scroll':!toggleDrawer}">
-        <router-outlet />
-    </app-section>
-    <div class="absolute top-0 left-0 h-screen w-full  bg-black  transition-opacity duration-200 ease-in-out flex items-center justify-center"
-        [ngClass]="!toggleDrawer? 'opacity-0 pointer-events-none' :  'opacity-60'">
+        <app-layout-modal class="base-modal" [ngClass]="{'opacity-0 pointer-events-none': !modalOpened}"
+            (hideModal)="toggleModal($event)">
+            <app-add-task class="modal"
+                [ngClass]="{'scale-1 custom-transition': modalOpened, 'scale-0 custom-transition-revert':!modalOpened}" />
+        </app-layout-modal>
+        <app-layout-modal class="base-modal" [ngClass]="{'opacity-0 pointer-events-none': !createBoardModal}"
+            (hideModal)="toggleModalCreate($event)">
+            <app-create-board class="modal"
+                [ngClass]="{'scale-1 custom-transition': createBoardModal, 'scale-0 custom-transition-revert':!createBoardModal}" />
+        </app-layout-modal>
     </div>
-    <app-layout-modal class="base-modal" [ngClass]="{'opacity-0 pointer-events-none': !modalOpened}"
-        (hideModal)="toggleModal($event)">
-        <app-add-task class="modal"
-            [ngClass]="{'scale-1 custom-transition': modalOpened, 'scale-0 custom-transition-revert':!modalOpened}" />
-    </app-layout-modal>
-    <app-layout-modal class="base-modal" [ngClass]="{'opacity-0 pointer-events-none': !createBoardModal}"
-        (hideModal)="toggleModalCreate($event)">
-        <app-create-board class="modal"
-            [ngClass]="{'scale-1 custom-transition': createBoardModal, 'scale-0 custom-transition-revert':!createBoardModal}" />
-    </app-layout-modal>
-</div>
+</ng-container>
+
+<ng-template #login>
+    <ng-container *ngComponentOutlet="loginComponent" />
+</ng-template>
