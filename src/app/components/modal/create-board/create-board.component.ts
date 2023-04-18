@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -8,10 +8,9 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./create-board.component.scss']
 })
 export class CreateBoardComponent {
-  taskForm: FormGroup
+  boardForm: FormGroup
   constructor(private td: FormBuilder) {
-
-    this.taskForm = this.td.group({
+    this.boardForm = this.td.group({
       title: ['', Validators.required],
       subtitle: ['', Validators.required],
     })
@@ -23,7 +22,14 @@ export class CreateBoardComponent {
     event.stopPropagation()
   }
 
+  @HostListener('document:click', ['$event'])
+  handleDocumentClick(event: Event) {
+    setTimeout(() => {
+      !this.boardForm.pristine && this.boardForm.reset();
+    }, 350);
+  }
+
   handleSubmit() {
-    console.table(this.taskForm.status);
+    console.log(this.boardForm.value)
   }
 }
