@@ -1,11 +1,12 @@
 <div class="wrapper">
-    <div class="form">
-        <div class="border-r-2 border-solid border-white h-full welcome-image">
-            <h1 class="text-3xl">Welcome to Kanban</h1>
+    <div class="form overflow-hidden">
+        <div class="h-full welcome-image overflow-hidden" >
+         <img src="/assets/images/Team04.webp" alt="" class="h-full w-full">
         </div>
         <div class="inner-form px-8">
+            <h1 class="text-3xl mb-4 truncate font-bold">Welcome to Kanban</h1>
             <form [formGroup]="loginForm" (ngSubmit)="signIn()">
-                <h1 class="text-2xl mb-4">Login to start</h1>
+                <h1 class="text-xl mb-4 font-bold ">Login to start</h1>
                 <div class="input-box">
                     <input type="email" name="" id="" placeholder="Email" formControlName="email">
                 </div>
@@ -13,11 +14,11 @@
                     <input type="password" name="" id="" placeholder="Password" formControlName="password">
                 </div>
                 <div class="submit-box">
-                    <button type="submit" [disabled]="!loginForm.valid" class="bg-btn rounded-full text-white py-3 px-5 flex justify-evenly mr-2">
-                        <span class="leading-3 mr-3 truncate"> Log In </span><i class="fa fa-arrow-right"></i>
+                    <button type="submit" [disabled]="!loginForm.valid" [ngClass]="{'opacity-50': !loginForm.valid}"  class="bg-btn rounded-full text-white py-2 px-5 flex justify-evenly items-center mr-2">
+                        <span class=" mr-3 truncate"> Log In </span><i class="fa fa-arrow-right"></i>
                     </button>
-                    <small class="text-white truncate ml-2">
-                        <a href="/register">
+                    <small class="text-white truncate ml-2 ">
+                        <a href="/register" class="text-subtitle">
                             Do you have an account?
                         </a>
                     </small>
@@ -26,15 +27,15 @@
             <div>
                 <div class="mt-4 flex items-center justify-evenly or-box">
                     <div class="w-full bg-white mt-1 social"></div>
-                    <span class="mx-3 leading-3">or</span>
+                    <span class="mx-3 leading-3 text-white">or</span>
                     <div class="w-full bg-white mt-1 social"></div>
                 </div>
                 <div class="flex justify-center mt-3">
-                    <p class="text-3xl mx-3 flex flex-col items-center"><i class="fa fa-github"></i>
+                    <p class="text-3xl mx-3 flex flex-col items-center cursor-pointer"><i class="fa fa-github"></i>
                     </p>
-                    <p class="text-3xl mx-3 flex flex-col"><i class="fa fa-google"></i></p>
-                    <p class="text-3xl mx-3 flex flex-col"><i class="fa fa-facebook"></i></p>
-                    <p class="text-3xl mx-3 flex flex-col"><i class="fa fa-linkedin"></i></p>
+                    <p class="text-3xl mx-3 flex flex-col cursor-pointer"><i class="fa fa-google"></i></p>
+                    <p class="text-3xl mx-3 flex flex-col cursor-pointer"><i class="fa fa-facebook"></i></p>
+                    <p class="text-3xl mx-3 flex flex-col cursor-pointer"><i class="fa fa-linkedin"></i></p>
                 </div>
             </div>
         </div>
