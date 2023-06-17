@@ -1,6 +1,7 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { ProjectService } from 'src/app/services/projects/project.service';
 
 @Component({
   selector: 'app-create-board',
@@ -9,7 +10,8 @@ import { FormBuilder } from '@angular/forms';
 })
 export class CreateBoardComponent {
   boardForm: FormGroup
-  constructor(private td: FormBuilder) {
+  @Output() hideModal = new EventEmitter<boolean>(false);
+  constructor(private td: FormBuilder, private projectService: ProjectService) {
     this.boardForm = this.td.group({
       title: ['', Validators.required],
       subtitle: ['', Validators.required],
@@ -30,6 +32,16 @@ export class CreateBoardComponent {
   }
 
   handleSubmit() {
-    console.log(this.boardForm.value)
+    this.projectService.storeProject(this.boardForm.value).subscribe({
+      next: (resp: any) => {
+        this.projectService.addProject(resp.data)
+        this.hideModal.emit(false);
+      },
+      error: (resp) => {
+        alert('Ha ocurrido un error a la hora de insertar un nuevo proyecto')
+      }
+    });
+
+
   }
 }

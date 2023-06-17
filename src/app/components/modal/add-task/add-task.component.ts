@@ -1,5 +1,6 @@
 import { Component, HostListener, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-task',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddTaskComponent {
   @Input() option: number | undefined = 0;
   taskForm: FormGroup
-  constructor(private td: FormBuilder) {
+  constructor(private td: FormBuilder, private router: Router) {
     this.taskForm = this.td.group({
       title: ['', Validators.required],
       description: [''],

@@ -57,6 +57,8 @@ export class AppComponent implements OnInit {
     this.modalOpened = toggle;
   }
   toggleModalCreate(toggle: boolean) {
+    console.log(toggle);
+
     this.createBoardModal = toggle;
   }
 

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Project } from 'src/app/interfaces/Project';
+import { ProjectService } from 'src/app/services/projects/project.service';
 
 @Component({
   selector: 'app-aside',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AsideComponent implements OnInit {
   title = 'kanban';
-  links = ['Platform Launch', 'Marketing Plan'];
+  links: Project | undefined = undefined;
   controlSwitch: boolean = false
   @Output() navbarBrand = new EventEmitter<string>(undefined);
   @Output() hideAside = new EventEmitter<boolean>(false)
@@ -18,22 +20,33 @@ export class AsideComponent implements OnInit {
   date: number | undefined
   modalOpened: boolean | undefined
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, public projectService: ProjectService) { }
   ngOnInit(): void {
     this.date = new Date().getFullYear();
     let theme = (localStorage.getItem('theme') as unknown) as boolean;
     if (theme) {
       this.controlSwitch = theme;
     }
+
+    this.projectService.getProjects().subscribe({
+      next: (resp: Project) => {
+        this.projectService.boards = resp.data;
+      },
+      error: (resp) => {
+        console.log(resp);
+      }
+    });
   }
 
   navigateToHome() {
     this.route.navigate(['/']);
   }
 
-  emitTitle(index?: number | undefined) {
-    const value = index !== undefined ? this.links[index] : 'home';
-    this.navbarBrand.emit(value);
+  emitTitle(id?: number | undefined) {
+    const value = this.projectService.boards?.find(el => el.id == id)
+
+
+    this.navbarBrand.emit(value?.title);
   }
 
   switchToggle() {

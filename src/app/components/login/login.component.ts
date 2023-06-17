@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup
+  loading: boolean | undefined
   constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       email: ['', Validators.required],
@@ -26,7 +27,19 @@ export class LoginComponent implements OnInit {
   }
 
   signIn() {
-    this.authService.signIn();
+    this.loading = true;
+    this.authService.signIn(this.loginForm.value).subscribe({
+      next: (resp: any) => {
+        localStorage['kanban_token'] = resp.token;
+        this.loading = false;
+        this.redirectToHome();
+      },
+      error: (resp) => {
+        if (resp.status == 401) {
+          alert('Sus credenciales son incorrectas')
+        }
+      }
+    });
     this.redirectToHome();
   }
 

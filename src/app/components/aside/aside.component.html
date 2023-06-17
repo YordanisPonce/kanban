@@ -3,8 +3,12 @@
 </h1>
 <ul>
     <li>All Boards</li>
-    <li *ngFor="let item of links;let i = index;" [routerLink]="['/task',i+1]" routerLinkActive="active"
-        (click)="emitTitle(i)">{{item}}</li>
+    <li *ngIf="!this.projectService.boards?.length;else projects">No hay proyectos disponibles para usted</li>
+    <ng-template #projects>
+        <li *ngFor="let item of this.projectService.boards;" [routerLink]="['/task',item.id]" routerLinkActive="active"
+            (click)="emitTitle(item.id)">{{item.title}}</li>
+    </ng-template>
+
     <li (click)="openModal()"><span>&plus;</span> Create new board</li>
 </ul>
 

@@ -30,7 +30,7 @@
         </app-layout-modal>
         <app-layout-modal class="base-modal" [ngClass]="{'opacity-0 pointer-events-none': !createBoardModal}"
             (hideModal)="toggleModalCreate($event)">
-            <app-create-board class="modal"
+            <app-create-board class="modal" (hideModal)="toggleModalCreate($event)"
                 [ngClass]="{'scale-1 custom-transition': createBoardModal, 'scale-0 custom-transition-revert':!createBoardModal}" />
         </app-layout-modal>
     </div>

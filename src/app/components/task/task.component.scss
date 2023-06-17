@@ -7,7 +7,7 @@
     @apply p-2 rounded-full w-fit h-fit;
 }
 .task {
-    @apply bg-primary p-4 rounded-md cursor-pointer my-5;
+    @apply bg-primary p-4 rounded-md my-5 cursor-pointer
 }
 .title {
     @apply font-bold truncate;

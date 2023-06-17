@@ -14,6 +14,9 @@ import { LayoutModalComponent } from './components/modal/layout-modal/layout-mod
 import { AddTaskComponent } from './components/modal/add-task/add-task.component';
 import { CreateBoardComponent } from './components/modal/create-board/create-board.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +35,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DragDropModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
