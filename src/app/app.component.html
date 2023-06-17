@@ -1,5 +1,5 @@
 <ng-container *ngIf="isLoggedIn();else login">
-    <div class="principal-box overflow-hidden">
+    <div class="principal-box overflow-hidden relative">
         <app-aside (navbarBrand)="getTitle($event)" (openM)="openAsideModal($event)" (hideAside)="hideAside($event)"
             [ngClass]="!toggleDrawer && innerWidth <= maxWidth? '-translate-x-full hidden' : 'translate-x-0'"
             class="-translate-x-full" />
@@ -33,6 +33,7 @@
             <app-create-board class="modal" (hideModal)="toggleModalCreate($event)"
                 [ngClass]="{'scale-1 custom-transition': createBoardModal, 'scale-0 custom-transition-revert':!createBoardModal}" />
         </app-layout-modal>
+        <app-dropdown class="absolute top-0 right-0 m-8" [ngClass]="{'hidden': !dropdown}" />
     </div>
 </ng-container>
 

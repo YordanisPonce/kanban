@@ -1,6 +1,7 @@
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/interfaces/Project';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { ProjectService } from 'src/app/services/projects/project.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class AsideComponent implements OnInit {
   date: number | undefined
   modalOpened: boolean | undefined
 
-  constructor(private route: Router, public projectService: ProjectService) { }
+  constructor(private route: Router, public projectService: ProjectService, private authService: AuthService) { }
   ngOnInit(): void {
     this.date = new Date().getFullYear();
     let theme = (localStorage.getItem('theme') as unknown) as boolean;
@@ -33,7 +34,9 @@ export class AsideComponent implements OnInit {
         this.projectService.boards = resp.data;
       },
       error: (resp) => {
-        console.log(resp);
+        if (resp.status == 401) {
+          this.authService.redirectToLogin();
+        }
       }
     });
   }

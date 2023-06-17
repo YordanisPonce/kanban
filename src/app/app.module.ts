@@ -16,6 +16,7 @@ import { CreateBoardComponent } from './components/modal/create-board/create-boa
 import { ReactiveFormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { HttpClientModule } from '@angular/common/http';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     CapitalizePipe,
     LayoutModalComponent,
     AddTaskComponent,
-    CreateBoardComponent
+    CreateBoardComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,

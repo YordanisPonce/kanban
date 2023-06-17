@@ -10,6 +10,7 @@ import { ProjectService } from 'src/app/services/projects/project.service';
 })
 export class CreateBoardComponent {
   boardForm: FormGroup
+  loading: boolean | undefined
   @Output() hideModal = new EventEmitter<boolean>(false);
   constructor(private td: FormBuilder, private projectService: ProjectService) {
     this.boardForm = this.td.group({
@@ -32,6 +33,7 @@ export class CreateBoardComponent {
   }
 
   handleSubmit() {
+    this.loading = true;
     this.projectService.storeProject(this.boardForm.value).subscribe({
       next: (resp: any) => {
         this.projectService.addProject(resp.data)
@@ -40,7 +42,9 @@ export class CreateBoardComponent {
       error: (resp) => {
         alert('Ha ocurrido un error a la hora de insertar un nuevo proyecto')
       }
-    });
+    }).add(() => {
+      this.loading = false;
+    });;
 
 
   }

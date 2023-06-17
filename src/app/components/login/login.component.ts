@@ -31,16 +31,14 @@ export class LoginComponent implements OnInit {
     this.authService.signIn(this.loginForm.value).subscribe({
       next: (resp: any) => {
         localStorage['kanban_token'] = resp.token;
-        this.loading = false;
         this.redirectToHome();
       },
       error: (resp) => {
-        if (resp.status == 401) {
-          alert('Sus credenciales son incorrectas')
-        }
+        (resp.status == 401) && alert('Sus credenciales son incorrectas')
       }
+    }).add(() => {
+      this.loading = false;
     });
-    this.redirectToHome();
   }
 
   redirectToHome() {

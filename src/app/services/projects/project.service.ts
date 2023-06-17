@@ -38,4 +38,12 @@ export class ProjectService {
     this.boards?.push(board)
   }
 
+  destroyProject(id: number) {
+    return this.http.delete(`${baseUrl}/boards/delete/${id}`, {
+      headers: {
+        ...headers,
+        Authorization: `Bearer ${localStorage.getItem('kanban_token')}`,
+      }
+    });
+  }
 }

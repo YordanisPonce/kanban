@@ -19,6 +19,7 @@ export class AppComponent implements OnInit {
   modalOpened: boolean | undefined
   createBoardModal: boolean | undefined
   loginComponent = LoginComponent
+  dropdown: boolean = false
   constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
@@ -35,6 +36,8 @@ export class AppComponent implements OnInit {
     event.stopPropagation();
     if (window.innerWidth <= this.maxWidth) {
       this.toggleDrawer = true;
+    } else {
+      this.dropdown = !this.dropdown;
     }
   }
 

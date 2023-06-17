@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/interfaces/User';
 import { baseUrl, headers } from '../constants';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: Router) { }
 
   isLoggedIn() {
     return localStorage['kanban_token'];
@@ -20,8 +21,17 @@ export class AuthService {
     });
   }
 
+  redirectToLogin() {
+    localStorage.clear();
+    this.route.navigate(['login']);
+  }
+
   signOut() {
-    localStorage.removeItem('kanban_token');
-    location.reload();
+   return this.http.post(`${baseUrl}/user/logout`, null, {
+      headers: {
+        ...headers,
+        Authorization: `Bearer ${localStorage.getItem('kanban_token')}`
+      }
+    });
   }
 }
